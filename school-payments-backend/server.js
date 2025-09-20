@@ -21,7 +21,7 @@ app.use(
 
 app.use("/api/auth", authRoutes);
 app.use("/api/orders", orderRoutes);
-app.use("/api/webhook", webhookRoutes);
+app.use("/webhook", webhookRoutes);
 app.use("/api/transactions", transactionRoutes);
 
 mongoose
