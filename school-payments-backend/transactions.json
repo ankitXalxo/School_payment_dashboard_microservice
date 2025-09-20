@@ -1,0 +1,93 @@
+{
+  "info": {
+    "name": "School Payments Transactions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Fetch All Transactions",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/transactions",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "transactions"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Fetch Transactions by School",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/transactions/school/{{schoolId}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "transactions",
+            "school",
+            "{{schoolId}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Check Transaction Status",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/transactions/status/{{custom_order_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "transactions",
+            "status",
+            "{{custom_order_id}}"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000/api"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "schoolId",
+      "value": "65b0e6293e9f76a9694d84b4"
+    },
+    {
+      "key": "custom_order_id",
+      "value": "CO-1758119605865"
+    }
+  ]
+}
