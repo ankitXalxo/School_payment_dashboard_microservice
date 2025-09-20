@@ -30,10 +30,12 @@ export const createPayment = async (req, res) => {
       payment_message: "initialized",
     });
 
+    // We now send both the callback_url and webhook_url in the payload
     const payload = {
       school_id: process.env.SCHOOL_ID,
       amount: String(amount),
-      callback_url: process.env.WEBHOOK_CALLBACK_URL,
+      callback_url: process.env.CLIENT_REDIRECT_URL,
+      webhook_url: process.env.WEBHOOK_URL,
     };
 
     const sign = jwt.sign(payload, process.env.PG_KEY, { algorithm: "HS256" });
@@ -50,13 +52,11 @@ export const createPayment = async (req, res) => {
     );
 
     const respData = response.data;
-    // console.log("Edviron response:", respData);
 
     res.status(201).json({
       message: "Payment initialized",
       order_id: order._id,
       collect_request_id: respData.collect_request_id,
-      // payment_url: respData.Collect_request_url,
       payment_url:
         respData.Collect_request_url || respData.collect_request_url || null,
     });
@@ -68,25 +68,7 @@ export const createPayment = async (req, res) => {
   }
 };
 
-// export const listOrders = async (req, res) => {
-//   try {
-//     const results = await Order.aggregate([
-//       {
-//         $lookup: {
-//           from: "orderstatuses",
-//           localField: "_id",
-//           foreignField: "collect_id",
-//           as: "statuses",
-//         },
-//       },
-//       { $unwind: { path: "$statuses", preserveNullAndEmptyArrays: true } },
-//     ]);
-//     res.json(results);
-//   } catch (err) {
-//     res.status(500).json({ message: err.message });
-//   }
-// };
-
+// listOrders and checkAndUpdateStatus functions remain unchanged
 export const listOrders = async (req, res) => {
   try {
     const results = await Order.aggregate([
