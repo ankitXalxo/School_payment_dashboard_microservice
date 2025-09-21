@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import DarkModeToggle from "./DarkModeToggle";
-import { logout } from "../utils/logout";
+import { useLogout } from "../utils/logout";
 
 export default function Layout({ children }) {
+  const logout = useLogout();
   return (
     <div className="min-h-screen text-gray-900 transition-colors duration-300 bg-gray-100 dark:bg-gray-900 dark:text-gray-100">
       {/* Header */}
