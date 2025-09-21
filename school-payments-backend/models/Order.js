@@ -1,23 +1,3 @@
-// import mongoose from "mongoose";
-
-// const orderSchema = new mongoose.Schema(
-//   {
-//     school_id: { type: mongoose.Schema.Types.Mixed, required: true },
-//     trustee_id: { type: mongoose.Schema.Types.Mixed },
-//     student_info: {
-//       name: String,
-//       id: String,
-//       email: String
-//     },
-//     gateway_name: { type: String, default: "Edviron" },
-//     custom_order_id: { type: String, index: true }
-//   },
-//   { timestamps: true }
-// );
-
-// export default mongoose.model("Order", orderSchema);
-
-// models/Order.js
 import mongoose from "mongoose";
 
 const OrderSchema = new mongoose.Schema(

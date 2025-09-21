@@ -1,0 +1,18 @@
+# MongoDB connection
+MONGO_URI=
+# Server config
+PORT=
+
+# JWT configuration
+JWT_SECRET=
+JWT_EXPIRES_IN=1d
+
+# Edviron Payment Gateway
+PAYMENT_API_KEY=
+PG_KEY=
+SCHOOL_ID=
+
+# Webhook callback (your server public URL or ngrok tunnel)
+WEBHOOK_CALLBACK_URL=
+
+CLIENT_URL=
