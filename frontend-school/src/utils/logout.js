@@ -1,4 +1,10 @@
-export const logout = () => {
-  localStorage.removeItem("token"); // remove auth token
-  window.location.href = "auth/login"; // redirect to login page
+import { useNavigate } from "react-router-dom";
+
+export const useLogout = () => {
+  const navigate = useNavigate();
+
+  return () => {
+    localStorage.removeItem("token");
+    navigate("/login"); // ✅ SPA navigation
+  };
 };
